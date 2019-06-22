@@ -1,33 +1,85 @@
 .App {
-  text-align: center;
+    -webkit-box-shadow: 0 2px 25px 0 rgba(0, 0, 0, 0);
+    background: rgba(56, 255, 255, 0);
+    -webkit-box-shadow: 0 2px 25px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 25px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 1.5%;
+    background-clip: padding-box;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-bottom: 3%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: -1;
+    color: white;
+    margin-top: 5%;
+    margin-bottom: 9%;
+    overflow: hidden;
+}
+
+.App .Products {
+    -ms-flex-line-pack: center;
+    align-content: center;
+    color: pink;
+    margin-bottom: 5%;
+    background: green;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* background-color: #333; */
+}
+
+li {
+    padding-left: 10%;
+    width: 100%;
+    align-content: center;
+}
+
+li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    width: 35%;
+}
+
+body {
+    background-image: -webkit-gradient(linear, right bottom, left top, from(#2F3640), color-stop(#192A56), to(#353B48));
+    background-image: linear-gradient(to top left, #2F3640, #192A56, #353B48);
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+    animation: App-logo-spin infinite 20s linear;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

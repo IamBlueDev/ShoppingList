@@ -1,0 +1,7 @@
+{
+    "env": {
+        "MONGO_USER": "Turi",
+        "MONGO_PASSWORD": "FfU1mlCedZVz34UD",
+        "MONGO_DB": "events-dev"
+    }
+}
