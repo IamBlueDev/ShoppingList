@@ -22,7 +22,15 @@ class LandingPage extends Component{
       }  
       componentDidMount() {
         //this.fetchProducts();
+        this.fetchUserProductList();
+
       }
+      fetchUserProductList(){
+          console.log(this.context.productList)
+         this.setState({productsList:this.context.productList})
+    
+      }
+
     fetchProducts(){
         const requestBody = {
             query: `

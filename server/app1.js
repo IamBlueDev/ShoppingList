@@ -35,6 +35,8 @@ app.use(
 );
 mongoose
   .connect(
+    `mongodb+srv://Turi:FfU1mlCedZVz34UD@cluster0-agabb.mongodb.net/test?retryWrites=true&w=majority`
+
     )
   .then(() => {
     app.listen(3001);

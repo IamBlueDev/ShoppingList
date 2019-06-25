@@ -34,6 +34,20 @@ class AuthPage extends Component {
               userId
               token
               tokenExpiration
+              productList{
+                name
+                description
+                nut{
+                  energyKj
+                  energyKcal
+                  fat
+                  satFat
+                  carbs
+                  sugars
+                  protine
+                  salt
+              }
+              }
             }
           }
         `
@@ -66,7 +80,7 @@ class AuthPage extends Component {
         })
         .then(resData => {
           if(resData.data.login.token){
-            this.context.login(resData.data.login.token, resData.data.login.userId, resData.data.login.tokenExperation);
+            this.context.login(resData.data.login.token, resData.data.login.userId, resData.data.login.tokenExperation,resData.data.login.productList);
           }
         })
         .catch(err => {

@@ -38,7 +38,9 @@ module.exports = {
     ,{expiresIn:'1h'});
     let productListA = user.ProductList.map(async product =>{
         const productinDB = await Product.findById(product)
-        return {name:productinDB.name, description:productinDB.description}
+        let productListB = []
+        productListB.push({name:productinDB.name})
+        return {name:productinDB.name, description:productinDB.description, nut:productinDB.nut}
        // return productListA.push(productListB)
     })
       
