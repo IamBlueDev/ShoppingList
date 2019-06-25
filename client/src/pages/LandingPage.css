@@ -1,0 +1,42 @@
+.MainBox {
+    width: 75%;
+}
+
+.ProductsList {
+    float: left;
+    width: 100%;
+    content: center;
+    text-align: center;
+}
+
+img {
+    width: 100px;
+    display: block;
+    margin: 0 auto;
+}
+
+.prod_name {
+    width: 50px;
+    margin: 0 auto;
+}
+
+.ProductsList ul {
+    list-style: none;
+    display: flex;
+}
+
+.prod_nutrition ul li {
+    background: darkslategray;
+    font-size: 10px;
+}
+
+.prod_nutrition {
+    margin: 0 auto;
+}
+
+.ProductsList li {
+    /* background: darkslategray; */
+    padding: 1%;
+    width: 25%;
+    margin: 1%;
+}

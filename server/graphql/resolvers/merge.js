@@ -32,7 +32,8 @@ const user = async userId => {
     return {
       ...user._doc,
       _id: user.id,
-      createdEvents: events.bind(this, user._doc.createdEvents)
+      createdEvents: events.bind(this, user._doc.createdEvents),
+      ProductList: findProductById.bind(this, user._doc.ProductList)
     };
   } catch (err) {
     throw err;

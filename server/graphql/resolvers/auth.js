@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../../models/user');
+const Product = require('../../models/product');
 
 module.exports = {
   createUser: async args => {
@@ -35,6 +36,13 @@ module.exports = {
    const token= await jwt.sign({userId: user.id,email:user.email},
     'wj1i2233dllm' //token here
     ,{expiresIn:'1h'});
-    return {userId:user.id,token:token,tokenExpiration:1};
+    let productListA = user.ProductList.map(async product =>{
+        const productinDB = await Product.findById(product)
+        return {name:productinDB.name, description:productinDB.description}
+       // return productListA.push(productListB)
+    })
+      
+    
+      return {userId:user.id,token:token,tokenExpiration:1,productList:productListA};
   }
 };

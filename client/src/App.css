@@ -1,4 +1,4 @@
-.App {
+.MainBox {
     -webkit-box-shadow: 0 2px 25px 0 rgba(0, 0, 0, 0);
     background: rgba(56, 255, 255, 0);
     -webkit-box-shadow: 0 2px 25px 0 rgba(0, 0, 0, 0.5);
@@ -18,7 +18,7 @@
     overflow: hidden;
 }
 
-.App .Products {
+.MainBox .Products {
     -ms-flex-line-pack: center;
     align-content: center;
     color: pink;

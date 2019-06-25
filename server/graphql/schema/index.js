@@ -44,6 +44,7 @@ type AuthData{
   userId:ID!
   token: String!
   tokenExpiration:Int
+  productList: [Product]
 }
 
 input EventInput {
@@ -73,17 +74,22 @@ input UserInput {
   password: String!
 }
 
+
 type RootQuery {
     events: [Event!]!
     login(email:String!,password:String!):AuthData!
     products: [Product!]!
+    getProducts(userId:String!):[Product!]!
+    
 }
 
 type RootMutation {
     createEvent(eventInput: EventInput): Event
     createUser(userInput: UserInput): User
     createProduct(productInput: ProductInput, nutInput:ProductNutInput): Product!
-}
+    addProductToUser(product:String): User
+  }
+
 
 schema {
     query: RootQuery

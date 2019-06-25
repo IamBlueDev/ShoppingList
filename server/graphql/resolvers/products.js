@@ -1,7 +1,8 @@
 const Product = require('../../models/product');
 const Nutrition = require('../../models/nutrition');
-const { transformProduct } = require('./merge');
+const { transformProduct,findProductById } = require('./merge');
 const { productNut } = require('./merge');
+const User = require('../../models/user');
 
 
 module.exports = {
@@ -17,8 +18,20 @@ module.exports = {
                 throw err;
             } 
          },
-    addProdict: async(args,req)=>{
+    addProductToUser: async (args,req)=>{
         //const userToAdd =
+        //const userToAdd = await User.findById(req.userId);
+        const userToAdd = await User.findById('5d0fae0dd82cf30fa0f19f36');
+
+        const productToAdd = await Product.findById('5d0fadacd82cf30fa0f19f34');
+        console.log(productToAdd)
+        try{
+            userToAdd.ProductList.push(productToAdd);
+            await userToAdd.save();
+            return userToAdd;
+        }catch(err){
+            throw err;
+        }
     },
     createProduct: async(args,req)=>{
         const findExisted = await Product.findOne({'name': args.productInput.name})
@@ -70,4 +83,7 @@ module.exports = {
             throw err;
         }
     },
+    getProducts: async =>{
+        
+    }
 }
