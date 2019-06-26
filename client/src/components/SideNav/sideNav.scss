@@ -1,0 +1,29 @@
+.SideNav_Main {
+    box-shadow: 1 2px 5px 0 black;
+    -webkit-box-shadow: 0 1px 20px 10px black;
+    background: slateblue;
+    float: left;
+    height: 100%;
+    width: 10.5rem;
+    margin-left: 1rem;
+    align-content: center;
+    text-align: center;
+    .Icon {
+        padding-bottom: 1rem;
+    }
+    ul {
+        list-style: none;
+        li {
+            display: block;
+        }
+    }
+    .SideNav_Item {
+        color: white;
+    }
+     :hover {
+        color: red;
+    }
+    .Bottom {
+        color: red;
+    }
+}

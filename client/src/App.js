@@ -6,8 +6,9 @@ import LandingPage from './pages/LandingPage';
 import Auth from './pages/Auth';
 import MainBox from './components/mainBox';
 import AuthContext from './context/auth-context';
+import DevPage from './pages/Dev'
 
-import './App.css';
+// import './App.css';
 
 
 class App extends Component {
@@ -43,11 +44,13 @@ class App extends Component {
         }}>
 
         <Switch>
-          {!this.state.token&&<Redirect from="/" to="/auth" exact />}
+          {/* {!this.state.token&&<Redirect from="/" to="/auth" exact />}
           {this.state.token&&<Redirect from="/auth" to="/" exact />}
           
           <Route path="/auth" component={Auth} />
-          {this.state.token && <Route path="/" component={LandingPage} />}
+          {this.state.token && <Route path="/" component={LandingPage} />} */}
+          <Route path="/" component={LandingPage} />
+
         </Switch>
       </AuthContext.Provider>
       </BrowserRouter>
