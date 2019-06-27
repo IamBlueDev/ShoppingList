@@ -198,9 +198,7 @@ static contextType = AuthContext;
             </div>
             <div className="itemContainer">
             <ul>
-              <li>Banana</li>
-              <li>Banana</li>
-
+            {productsList}
             </ul>
 
             </div>
