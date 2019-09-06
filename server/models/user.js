@@ -7,6 +7,10 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
+  socialID: {
+    type: String,
+    required : false
+  },
   password: {
     type: String,
     required: true
@@ -24,5 +28,6 @@ const userSchema = new Schema({
     }
   ]
 });
+
 
 module.exports = mongoose.model('User', userSchema);

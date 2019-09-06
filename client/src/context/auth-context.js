@@ -4,7 +4,8 @@ export default React.createContext({
     token:null,
     userId:null,
     productList:[],
-    login:(token,userId,tokenExperation,productList)=>{
+    photo:"",
+    login:()=>{
 
     },
     logout:()=>{}
