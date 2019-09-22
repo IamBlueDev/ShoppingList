@@ -19,6 +19,7 @@ type Product{
   name: String!
   description: String!
   nut: Nutrition!
+  photo: String
 }
 
 
@@ -37,14 +38,19 @@ type User {
   email: String!
   password: String
   createdEvents: [Event!]
-  productList: [Product!]
+  productList: [ListItem]
 }
 
 type AuthData{
   userId:ID!
   token: String!
   tokenExpiration:Int
-  productList: [Product]
+  productList: [ListItem]
+}
+type ListItem{
+  _id:ID!
+  product:Product
+  amount:Int
 }
 
 input EventInput {
@@ -80,14 +86,14 @@ type RootQuery {
     login(email:String!,password:String!):AuthData!
     products: [Product!]!
     getProducts(userId:String!):[Product!]!
-    
+    getSocialProducts(socialId: String!): [ListItem]
 }
 
 type RootMutation {
     createEvent(eventInput: EventInput): Event
     createUser(userInput: UserInput): User
-    createProduct(productInput: ProductInput, nutInput:ProductNutInput): Product!
-    addProductToUser(product:String): User
+    createProduct(productInput: ProductInput, nutInput:ProductNutInput, photo:String): Product!
+    addProductToUser(product:String,amount:Int): User
   }
 
 

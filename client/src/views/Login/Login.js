@@ -10,13 +10,14 @@ class Login extends React.Component{
   static contextType = AuthContext;  
 
   componentDidMount() {
+    this.manage();
     const { socket, provider } = this.props
 
-console.log(socket);
+// console.log(socket);
   }
   state={
     user:{},
-      projects: [],
+      products: [],
   }
       manage = () =>{
       fetch("http://localhost:3001/user")    
@@ -24,10 +25,12 @@ console.log(socket);
         return res.json();
       })
       .then(data => {
-        this.setState({ projects: data.data });
+        this.setState({ products: data.data });
         console.log(data);
+        // console
         this.context.login(data.socialID,data.Photo,data.ProductList)
-        console.log(this.context);
+        // this.context.refreshUserList();
+        // console.log(this.context);
       })
       .catch(err => console.log(err));
      }
@@ -36,10 +39,10 @@ console.log(socket);
             <div className="Login Card">
        <div className="Card__Header">
          <span>Login</span>
-         <div className="Card__Social">
+         <div className="Card__Options">
          {/* Social links here */}
-         <a><FontAwesomeIcon icon={faFacebookF} size="2x" onClick={this.manage}/></a>
-         <a><FontAwesomeIcon icon={faGoogle} size="2x"/></a>
+         <a href="http://localhost:3001/auth/facebook"><FontAwesomeIcon icon={faFacebookF} size="2x" onClick={this.manage}/></a>
+         <a href="http://localhost:3001/auth/google"><FontAwesomeIcon icon={faGoogle} size="2x" onClick={this.manage}/></a>
 
          </div>
        </div>

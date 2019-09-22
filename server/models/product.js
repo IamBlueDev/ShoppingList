@@ -13,10 +13,14 @@ const productSchema = new Schema(
       type: String,
       required:false
     },
-    // amount:{
-    //   type: Number,
-    //   required:false
-    // },   
+    photo:{
+      type: String,
+      required:false
+    },
+    amount:{
+      type: Number,
+      required:false
+    },   
     nut:{
       type: Schema.Types.ObjectId,
       ref: 'Nutrition'

@@ -21,12 +21,7 @@ const socialSchema = new Schema({
       ref: 'Event'
     }
   ],
-  ProductList: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Product'
-    }
-  ]
+  ProductList: ['ListItem']
 });
 
 

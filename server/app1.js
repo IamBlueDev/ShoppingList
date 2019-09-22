@@ -26,6 +26,7 @@ const warn = chalk.bgYellow.black;
 const log = chalk.bgWhite.black;
 const fs = require('fs');
 const Session = require('cookie-session');
+const { transformListItem } = require('./graphql/resolvers/merge');
 
 let localuser = {
 
@@ -60,11 +61,11 @@ passport.use(new FacebookStrategy({
 },
 (accessToken,refreshToken,profile,cb)=> {
   // localuser = {...profile};
-  console.log(log(JSON.stringify(profile)));
+  // console.log(log(JSON.stringify(profile)));
   // http://localhost:3001/auth/facebook
   User.findOne({socialID:profile.id}).then((currentUser)=>{
       if(!currentUser){
-      console.log(warn(profile.photos[0].value));
+      // console.log(warn(profile.photos[0].value));
         currentUser = new User({
           Display: profile.displayName,
           socialID: profile.id,
@@ -72,10 +73,15 @@ passport.use(new FacebookStrategy({
         }).save().then((newUser) => {
           console.log(log('new user created:'+ newUser))
         });
-      }
-      localuser = currentUser;
-  })
+      }else{
+        console.log(localuser);
 
+        console.log(currentUser);
+        localuser = currentUser;
+        // console.log(currentUser);
+      }
+  })
+  
   return cb(null,profile);
 }
 ))
@@ -96,12 +102,12 @@ passport.use(new GoogleStrategy({
         socialID: profile.id,
         Photo:profile.picture,
       }).save().then((newUser) => {
-        console.log(log('new user created:'+ newUser))
+        // console.log(log('new user created:'+ newUser))
       });
     }
     localuser = currentUser;
 })
-  console.log(localuser);
+  // console.log(localuser);
   return cb(null,profile);
 }
 ))
@@ -185,7 +191,7 @@ mongoose
   });
 
   app.get("/user",(req,res)=>{
-    console.log(log("getting userdata"));
+    // console.log(log("getting userdata"));
     res.send(localuser);
   })
 

@@ -8,8 +8,11 @@ module.exports = (req,res,next) =>{
     const token = authHeader.split(' ')[1]; // Authorization: Bearer token:token
     if(!token || token ===''){
         req.isAuth = false;
+        console.log("Autorization in route.");
         return next();
     }
+    console.log("Autorization in route.2");
+
     let decodedToken;
     try{
         decodedToken = jwt.verify(token,'wj1i2233dllm')

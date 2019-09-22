@@ -1,0 +1,47 @@
+@import '../../styles/colors.scss';
+.Editor {
+    position: absolute;
+    bottom: 100px;
+    right: 50px;
+    height: 10rem;
+    width: 35rem;
+    display: flex;
+    flex-direction: row;
+    background: red;
+    overflow: scroll;
+    >.column {
+        margin: .5rem;
+        >.item {
+            width: 7rem;
+            position: relative;
+            // margin: 1rem;
+            display: flex;
+            flex-direction: row;
+            >input {
+                position: absolute;
+                right: 0;
+                display: flex;
+                color: black;
+                width: 25px;
+            }
+        }
+        label {
+            margin-right: 10px;
+            display: flex;
+        }
+        input {
+            background: none;
+            // box-shadow: 1px black;
+            box-shadow: 0px 1px blue;
+            border: none;
+            display: flex;
+            color: black;
+            &:focus {
+                box-shadow: 0px 1px black;
+                outline: none;
+            }
+        }
+        // display: flex;
+        flex-direction: row;
+    }
+}

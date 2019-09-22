@@ -1,0 +1,43 @@
+
+schemeas for tables
+
+Recipes:
+Recipe: 
+Required items: [ids?]
+Sub-Recipe:[Recipe ID]
+Total nut:[ids?>]
+
+E.G
+
+Recipe: Chicken lasagne 
+Required Items:
+Olive Oil [1tbsp]
+Chicken Thigh Fillets [2]
+Oion [1]
+Garlic clove [1]
+Dried Oregano [0.5tsp]
+Chilli Flakes [Pinch]
+Chopped Tomatos [400g]
+Lasagne sheets[4]
+Sub-Recipe: lasagne cheese sauce
+Total nut: 1200Kcal
+
+Items:
+Name:
+Description:
+Ammount:
+nut:
+icon:
+GottenAll:
+
+
+
+query{
+		login(email:"Test@gmail.com2",password:"123"){
+    productList{
+      name
+    	description
+    }
+  }
+  
+}

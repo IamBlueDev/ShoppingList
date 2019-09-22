@@ -2,7 +2,7 @@ const Event = require('../../models/event');
 const User = require('../../models/user');
 const Product = require('../../models/product');
 const Nutrition = require('../../models/nutrition');
-
+const ListItem = require('../../models/listItem');
 
 const { dateToString } = require('../../helpers/date');
 
@@ -33,7 +33,7 @@ const user = async userId => {
       ...user._doc,
       _id: user.id,
       createdEvents: events.bind(this, user._doc.createdEvents),
-      ProductList: findProductById.bind(this, user._doc.ProductList)
+      // ProductList: findProductById.bind(this, user._doc.ProductList)
     };
   } catch (err) {
     throw err;
@@ -54,7 +54,7 @@ const transformEvent = event => {
 const productNut =async productId =>{
       try{
         const nutrition = await Nutrition.findById(productId)
-        console.log(nutrition);
+        // console.log(nutrition);
         return{
           ...nutrition.doc,
           _id:nutrition.id,
@@ -81,7 +81,8 @@ const productNut =async productId =>{
           _id:product.id,
           name:product.name,
           description:product.description,
-          nut: productNut.bind(this,product.nut)
+          nut: productNut.bind(this,product.nut),
+          photo:product.photo,
         }
       }catch(err){
         throw err;
@@ -89,16 +90,32 @@ const productNut =async productId =>{
   }
 
   const transformProduct = product => {
-    console.log(product.description)
+    // console.log(product.description)
      return {
     ...product._doc,
     _id:product.id,
     name:product.name,
     description:product.description,
     nut: productNut.bind(this,product.nut),
+    photo: product.photo,
     };
   };
+
+  const transformListItem = listItem =>{
+    // console.log(listItem)
+    var test = {
+      ...listItem._doc,
+      _id:listItem._id,
+      product: findProductById.bind(this,listItem.product),
+      amount:listItem.amount,
+      
+    };
+    // console.log(test);
+    return test;
+
+  }
 
 exports.transformEvent = transformEvent;
 exports.transformProduct = transformProduct;
 exports.findProductById = findProductById;
+exports.transformListItem = transformListItem;
